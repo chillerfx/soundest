@@ -11,7 +11,8 @@ angular.module('weatherFilters', [])
 })
 .filter('toCelcius', function() {
 	return function(input) {
-		return input-273.15 + '℃'
+		var temp = input-273.15
+		return temp.toFixed(2) + '℃'
 	}
 })
 // filter('dateFilter', function() {

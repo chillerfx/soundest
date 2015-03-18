@@ -1,4 +1,4 @@
-var app = angular.module('soundest', ['ngRoute', 'weatherFilters']);
+var app = angular.module('soundest', ['ngRoute', 'weatherFilters', 'angular-loading-bar']);
 
 app.config(['$routeProvider',
     function($routeProvider) {
@@ -27,22 +27,16 @@ app.controller('CountryController', ['$scope', '$http',
     function ($scope, $http) {
         $scope.countries = [];
         $http.get('city.list.json.gz').success(function(data) {
-            $scope.cities = data;
-            //$scope.EndTime = data[0]['expires']*1000;
+            $scope.cities = data;          
         })
         $scope.quantity = 5;
      }
 ]);
-// app.service('CityService', function ($http) {
-//     return  {   data : 
-//             }
-// })
 
 app.controller('CityController', ['$scope', '$http',
     function ($scope, $http) {
         $scope.cities = [];        
-        //console.log(CityService.data());
-        $scope.cities = $http.get('city.list.json.gz')
+             $scope.cities = $http.get('city.list.json.gz')
                 .success(function(data) {                  
                     $scope.cities = data;
                 })

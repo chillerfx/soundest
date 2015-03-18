@@ -1,9 +1,9 @@
 <div class="container" ng-controller="WeatherDetailCtrl">
-  <h2>{{weatherInfo.name}}, {{weatherInfo.sys.country}}</h2>
-  {{weatherInfo}}
-      <div class="row">
-        <div class="col-md-4 thumbnail">            
-          <p>Temp {{weatherInfo.main.temp | toCelcius}}</p>
+  <h2>{{weatherInfo.name}}, {{weatherInfo.sys.country}}</h2>  
+      <div class="row row-centered">
+        <div class="col-md-4 col-centered thumbnail">            
+          <img ng-src="/img/{{weatherInfo.weather[0].icon}}.gif">
+        <p>Temp {{weatherInfo.main.temp | toCelcius}}</p>
         <p>Sunrise : {{weatherInfo.sys.sunrise | formatTime}}</p>
         <p>Sunset  : {{weatherInfo.sys.sunset | formatTime}}</p>
         </div>
