@@ -3,9 +3,10 @@
       <div class="row row-centered">
         <div class="col-md-4 col-centered thumbnail">            
           <img ng-src="/img/{{weatherInfo.weather[0].icon}}.gif">
-        <p>Temp {{weatherInfo.main.temp | toCelcius}}</p>
-        <p>Sunrise : {{weatherInfo.sys.sunrise | formatTime}}</p>
-        <p>Sunset  : {{weatherInfo.sys.sunset | formatTime}}</p>
+          <p>Temp {{weatherInfo.main.temp | toCelcius}}</p>
+          <p>Sunrise : {{weatherInfo.sys.sunrise | formatTime}}</p>
+          <p>Sunset  : {{weatherInfo.sys.sunset | formatTime}}</p>
+          <a class="btn btn-default" href="#add/{{cityID}}" role="button">Add to favorites</a>
         </div>
     </div> 
 </div>

@@ -1,0 +1,10 @@
+<div class="container" ng-controller="CountryController">
+    <h2>Countries {{countries.length}}</h2>
+    <div class="row" >
+        <div class="col-md-4 thumbnail" ng-repeat="country in countries " >
+            <a ng-href="country/{{country.country}}"><h3>{{country.name}}</h3></a>         
+        </div>
+    </div>
+</div>
+
+
