@@ -6,7 +6,7 @@
           <p>Temp {{weatherInfo.main.temp | toCelcius}}</p>
           <p>Sunrise : {{weatherInfo.sys.sunrise | formatTime}}</p>
           <p>Sunset  : {{weatherInfo.sys.sunset | formatTime}}</p>
-          <a class="btn btn-default" href="#add/{{cityID}}" role="button">Add to favorites</a>
-        </div>
+          <a class="btn btn-default"  ng-click="saveFavorite()" role="button">Add to favorites</a>
+        </div>       
     </div> 
 </div>

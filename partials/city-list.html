@@ -1,12 +1,19 @@
     <div class="container" ng-controller="CityController">
-        <h2>Cities {{cities.length}}</h2>
         <div class="row">
             <div class="col-md-4 thumbnail">
                 <label for="CitySearch">Search for city:</label>
                 <input class="form-control" type="text" name="CitySearch" ng-model="cityQuery" id="CitySearch">
+            </div>            
+            <a class="btn btn-default  pull-right"  ng-click="showFavorites()" role="button">Show favorite cities</a>        
+        </div>
+        <div class="row" >            
+            <h2 ng-if="favcities.length != 0"> Favorite cities: </h2>
+            <div class="col-md-4 thumbnail" ng-repeat="fav in favcities" ng-if="favcities.length != 0">
+                <a ng-href="#city/{{fav._id}}"><h3>{{fav.name}}, {{fav.country}}</h3></a>            
             </div>
         </div>
-        <div class="row" >
+        <div class="row" >   
+            <h2> All cities: </h2>          
             <div class="col-md-4 thumbnail" ng-repeat="city in cities | filter:cityQuery | limitTo:quantity ">
                 <a ng-href="#city/{{city._id}}"><h3>{{city.name}}, {{city.country}}</h3></a>            
             </div>
