@@ -1,4 +1,4 @@
-var app = angular.module('soundest', ['ngRoute']);
+var app = angular.module('soundest', ['ngRoute', 'weatherFilters']);
 
 app.config(['$routeProvider',
     function($routeProvider) {
@@ -56,21 +56,15 @@ app.controller('CityController', ['$scope', '$http',
 app.controller('WeatherDetailCtrl', ['$scope', '$routeParams', '$http',
     function($scope, $routeParams, $http) {
         $scope.cityID = $routeParams.id
+        $scope.sunrise = null;
+        $scope.sunset = null;
         $scope.weatherInfo =  $http.get('http://api.openweathermap.org/data/2.5/weather?id='+$scope.cityID)//, {params: {id : $scope.cityid}})
         .success(function (data) {
-            $scope.weatherInfo = data;
+            $scope.weatherInfo = data;           
         }).error(function(data, status){
             console.log(data + " " + status);
         })
-        // getWeatherInfo = $resource("http://ip-address/something/:id", {id: "@id"})
-        // $scope.weatherInfo = getWeatherInfo.get({id:$scope.cityID })
-  //       Something = $resource("http://ip-address/something/:id", {id: "@id"});
-  // $scope.something = Something.get({id:1});
-        // $scope.SKU = $routeParams.SKU;
-        //     // $http.get('index.php', {params:{i :$routeParams.SKU}}).success(function(data) {
-        //     //     $scope.products = data;
-        //     //     $scope.EndTime = data[0]['expires'] *1000;
-        //     // });
+        
 }]);
 
 
