@@ -4,7 +4,7 @@ app.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/', {
-                templateUrl: 'city-list.html',
+                templateUrl: 'partials/city-list.html',
                 controller: 'CityController'
             }).
             // when('/city/:country', {
@@ -16,7 +16,7 @@ app.config(['$routeProvider',
             //     controller: 'WeatherDetailCtrl'
             // })
             when('/city/:id', {
-                templateUrl: 'city-weather.html',
+                templateUrl: 'partials/city-weather.html',
                 controller: 'WeatherDetailCtrl'
             }).
             otherwise({
